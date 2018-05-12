@@ -37,7 +37,7 @@
         },
         methods: {
             sendCommand: function(cmd) {
-                axios.get("http://localhost" + cmd)
+                axios.get("http://localhost:4477/" + cmd)
                     .then(response => {
                         this.posts = response.data
                     })
@@ -46,4 +46,4 @@
     });
 </script>
 
-</html>
+</html
