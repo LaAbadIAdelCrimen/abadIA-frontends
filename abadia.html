@@ -12,14 +12,12 @@
 <body>
     <div class="container" id="app">
         <h3 class="text-center">AbadIA Control Center</h3>
-        <div class="columns medium-3" v-for="post in posts">
-            <div class="card">
-                <div class="card-divider">
-                    {{ post.title }}
-                </div>
-                <div class="card-section">
-                    <p>{{ post.body }}.</p>
-                </div>
+        <div class="card">
+            <div class="card-divider">
+                Game Engine State:
+            </div>
+            <div class="card-section">
+                <p>{{ post.dia }}</p>
             </div>
         </div>
         <hr>
@@ -30,8 +28,8 @@
     var vm = new Vue({
         el: '#app',
         data: {
-            posts: [{
-                title: "Game Engine State:",
+            post: [{
+                title: "Abadia Game State",
                 body: "No data"
             }]
         },
@@ -39,7 +37,7 @@
             sendCommand: function(cmd) {
                 axios.get("http://localhost:4477/" + cmd)
                     .then(response => {
-                        this.posts = response.data
+                        this.post = response.data
                     })
             }
         }
